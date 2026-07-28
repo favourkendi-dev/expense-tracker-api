@@ -2,9 +2,7 @@
 
 import random
 from datetime import timedelta
-
 from faker import Faker
-
 from app import create_app
 from models import db, User, Expense
 from schemas import VALID_CATEGORIES
@@ -13,12 +11,12 @@ fake = Faker()
 app = create_app()
 
 with app.app_context():
-    print("Clearing existing data...")
+    print("Clearing existing data")
     Expense.query.delete()
     User.query.delete()
     db.session.commit()
 
-    print("Seeding users...")
+    print("Seeding users")
     users = []
     demo_user = User(username="favour")
     demo_user.password_hash = "demo123"
@@ -32,7 +30,7 @@ with app.app_context():
     db.session.add_all(users)
     db.session.commit()
 
-    print("Seeding expenses...")
+    print("Seeding expenses")
     expenses = []
     for user in users:
         for _ in range(random.randint(5, 10)):
@@ -48,6 +46,6 @@ with app.app_context():
     db.session.add_all(expenses)
     db.session.commit()
 
-    print(f"Done seeding! Created {len(users)} users and {len(expenses)} expenses.")
-    print("Demo login -> username: favour / password: demo123")
+    print(f"Done seeding Created {len(users)} users and {len(expenses)} expenses")
+    print("Demo login username: favour / password: demo123")
    

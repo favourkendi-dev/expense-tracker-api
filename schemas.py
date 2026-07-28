@@ -15,7 +15,7 @@ class ExpenseSchema(Schema):
         required=True,
         validate=validate.OneOf(VALID_CATEGORIES, error="Category must be one of: {choices}.")
     )
-    date = fields.Date(required=True)  # this is the key line — parses "2026-07-01" into a real date object
+    date = fields.Date(required=True)  
     user_id = fields.Int(dump_only=True)
 
 

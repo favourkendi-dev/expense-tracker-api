@@ -19,7 +19,7 @@ def get_current_user():
 
 def register_routes(app):
 
-    # Auth
+    # Authentication
 
     @app.route("/signup", methods=["POST"])
     def signup():
@@ -42,7 +42,7 @@ def register_routes(app):
             return jsonify({"errors": errors}), 422
 
         user = User(username=username)
-        user.password_hash = password  # triggers bcrypt hashing via the setter
+        user.password_hash = password  
 
         try:
             db.session.add(user)
@@ -126,7 +126,7 @@ def register_routes(app):
                 title=data["title"],
                 amount=data["amount"],
                 category=data["category"],
-                date=data["date"],  # a real date object, thanks to Marshmallow's fields.Date
+                date=data["date"],  
             )
             db.session.add(expense)
             db.session.commit()
