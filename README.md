@@ -21,8 +21,8 @@ Authentication is **session-based**: on login, Flask stores the user's id in a s
 
 1. Clone the repo and navigate to the backend:
 ```bash
-   git clone <repo-url>
-   cd <repo>
+   git clone https://github.com/favourkendi-dev/expense-tracker-api.git
+   cd expense-tracker-api
 ```
 
 2. Install dependencies (Pipenv, pinned to Python 3.10 for compatibility with the required Flask/Werkzeug versions):
